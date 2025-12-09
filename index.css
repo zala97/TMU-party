@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     padding: .5rem;
-    background: #f0f8ff;
+    background: #ebd8ba;
 }
 
 h1 {
@@ -24,7 +24,7 @@ ul {
 li {
     padding: 15px;
     margin: 8px 0;
-    background: white;
+    background: #ca535d;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -33,7 +33,7 @@ li {
 
 li.checked {
     opacity: 0.6;
-    background: #e0f7fa;
+    background: #ca535db1;
 }
 
 li.checked label {
@@ -52,4 +52,9 @@ input[type="checkbox"] {
     font-size: 24px;
     margin: 20px 0;
     color: #ff4081;
+}
+
+#search {
+    border-radius: .5rem;
+    /* outline: none; */
 }

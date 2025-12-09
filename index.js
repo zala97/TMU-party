@@ -4,9 +4,8 @@ const totalSpan = document.getElementById('total');
 const search = document.getElementById('search');
 
 const guests = [
-    "Ali Mottaghi", "zahra Karami", "asoshe"
+    "زری کرمی" , "متقی" , "جابر کوچکی " , "ینبتسینبتیبت"
 ];
-
 
 totalSpan.textContent = guests.length;
 
@@ -20,7 +19,7 @@ function load() {
     const saved = localStorage.getItem('checkedGuests');
     return saved ? JSON.parse(saved) : [];
 }
-
+    
 function updateCount() {
     const checked = guests.filter((_, i) => document.getElementById('c' + i).checked).length;
     countSpan.textContent = checked;
