@@ -98,7 +98,7 @@ input[type="checkbox"] {
 
 .search-container label {
   position: absolute;
-  top: 12%;
+  top: 14%;
   right: 10px;
   transform: translateY(-20%);
   background: white;
