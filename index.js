@@ -2,7 +2,7 @@ const list = document.getElementById('list');
 const countSpan = document.getElementById('count');
 const totalSpan = document.getElementById('total');
 const search = document.getElementById('search');
-
+// search.setAttribute("class" , "search-container")
 const guests = [
     "زری کرمی" , "متقی" , "جابر کوچکی " , "ینبتسینبتیبت"
 ];
@@ -29,10 +29,12 @@ function updateCount() {
 guests.forEach((guest, i) => {
     const li = document.createElement('li');
     const checkbox = document.createElement('input');
+    checkbox.setAttribute("class" , "checkbox")
     checkbox.type = 'checkbox';
     checkbox.id = 'c' + i;
 
     const label = document.createElement('label');
+    label.setAttribute("class" , "input_label")
     label.htmlFor = 'c' + i;
     label.textContent = guest;
 
@@ -66,3 +68,7 @@ search.addEventListener('input', (e) => {
         li.style.display = name.includes(term) ? 'flex' : 'none';
     });
 });
+
+
+
+
