@@ -119,7 +119,7 @@ input[type="checkbox"] {
 .download-btn {
   position: absolute;
   left: 1%;
-  top: 16%;
+  top: 22.5%;
   padding: .5rem;
   border: 2px solid #ccc;
   border: 0;
@@ -138,5 +138,9 @@ input[type="checkbox"] {
   .search-container {
     margin: 0 1rem;
     width: 80%;   /* adjusts nicely for phones */
+  }
+  .download-btn {
+    top: 35%;
+    left: 15%;
   }
 }
