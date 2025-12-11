@@ -72,29 +72,51 @@ search.addEventListener('input', (e) => {
 
 
 // download file csv or exel 
-download.addEventListener("click", () => {
+document.getElementById('download-csv').addEventListener('click', () => {
     const checkedGuests = guests.filter((_, i) =>
         document.getElementById('c' + i).checked
     );
 
     if (checkedGuests.length === 0) {
-        alert("No guests have arrived yet!")
+        alert('No guests have arrived yet!');
+        return;
     }
 
-    let csv = 'Name , Status\n';
+    // Create CSV content (with BOM for better Excel support)
+    let csv = '\uFEFFName,Status\r\n';
     checkedGuests.forEach(name => {
-        csv += `"${name}","Arrived"\n`;
+        csv += `"${name}","Arrived"\r\n`;
     });
 
-    // Download it
-    const blob = new Blob([csv], { type: 'text/csv' });
+    // Create blob and URL
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'list-arrived-guests.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-})
+
+    // Detect if mobile (especially iOS)
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isIOS || isMobile) {
+        // On mobile/iOS: Open in new tab for easy sharing/saving
+        const newTab = window.open(url, '_blank');
+        if (newTab) {
+            newTab.focus();
+        } else {
+            alert('Please allow pop-ups to view and save the file.');
+        }
+        // Clean up URL after a delay
+        setTimeout(() => URL.revokeObjectURL(url), 10000);
+    } else {
+        // On desktop: Automatic download
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'arrived-guests.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
+});
 
 
 

@@ -118,8 +118,9 @@ input[type="checkbox"] {
 
 .download-btn {
   position: absolute;
+  z-index: 10;
   left: 1%;
-  top: 16%;
+  top: 15%;
   padding: .5rem;
   border: 2px solid #ccc;
   border: 0;
@@ -136,7 +137,7 @@ input[type="checkbox"] {
 }
 @media (max-width: 600px) {
   .search-container {
-    margin: 0 1rem;
+    margin: 0 1.1rem;
     width: 80%;   /* adjusts nicely for phones */
   }
   .download-btn {
